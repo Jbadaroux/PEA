@@ -1,0 +1,10 @@
+image:
+  file: Dockerfile
+
+tasks:
+  - init: echo "Lancement de l'environnement Tkinter"
+    command: bash -c "fluxbox & x11vnc -display :0 -forever -nopw -listen 0.0.0.0 -xkb & xvfb-run -a -s '-screen 0 1024x768x24' python3 main.py"
+
+ports:
+  - port: 6080
+    onOpen: open-preview
